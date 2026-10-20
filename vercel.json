@@ -11,11 +11,11 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": { "service": "backend" }
+      "destination": { "service": "backend", "path": "/api/$1" }
     },
     {
-      "source": "/(.*)",
-      "destination": { "service": "frontend" }
+      "source": "/((?!api/).*)",
+      "destination": { "service": "frontend", "path": "/$1" }
     }
   ]
 }
