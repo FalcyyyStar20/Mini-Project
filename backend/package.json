@@ -1,5 +1,5 @@
 ﻿{
-  "name": "escape-room-backend",
+  "name": "cyber-escape-backend",
   "version": "1.0.0",
   "main": "server.js",
   "dependencies": {
