@@ -1,6 +1,13 @@
 {
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/backend/server.js" },
-    { "source": "/(.*)", "destination": "/frontend/index.html" }
-  ]
+  "framework": "services",
+  "services": {
+    "backend": {
+      "entrypoint": "backend",
+      "routePrefix": "/api"
+    },
+    "frontend": {
+      "entrypoint": "frontend",
+      "routePrefix": "/"
+    }
+  }
 }
