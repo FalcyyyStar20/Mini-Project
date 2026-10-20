@@ -2,12 +2,10 @@
   "framework": "services",
   "services": {
     "backend": {
-      "entrypoint": "backend",
-      "routePrefix": "/api"
+      "entrypoint": "backend"
     },
     "frontend": {
-      "entrypoint": "frontend",
-      "routePrefix": "/"
+      "entrypoint": "frontend"
     }
   }
 }
