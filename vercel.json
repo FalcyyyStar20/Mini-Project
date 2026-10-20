@@ -1,13 +1,21 @@
 {
-  "framework": "services",
-  "experimentalServices": {
-    "backend": {
-      "entrypoint": "backend",
-      "routePrefix": "/api"
-    },
+  "services": {
     "frontend": {
-      "entrypoint": "frontend",
-      "routePrefix": "/"
+      "root": "frontend/"
+    },
+    "backend": {
+      "root": "backend/",
+      "entrypoint": "server.js"
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": { "service": "backend", "path": "/api/$1" }
+    },
+    {
+      "source": "/(.*)",
+      "destination": { "service": "frontend", "path": "/$1" }
+    }
+  ]
 }
