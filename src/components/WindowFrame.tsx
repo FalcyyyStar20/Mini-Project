@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Maximize2, Minimize2, RotateCcw, Volume2, VolumeX, ShieldAlert, Terminal, Sun, Moon } from 'lucide-react';
+import { Maximize2, Minimize2, RotateCcw, Volume2, VolumeX, ShieldAlert, Terminal, Sun, Moon, GraduationCap, X, CheckCircle2 } from 'lucide-react';
 import { useGame } from '../context/GameContext';
 import { sound } from '../utils/sound';
 
@@ -16,10 +16,22 @@ export const WindowFrame: React.FC<WindowFrameProps> = ({
   children,
   activeRoomId
 }) => {
-  const { soundEnabled, toggleSound, resetGame, theme, toggleTheme } = useGame();
+  const { soundEnabled, toggleSound, resetGame, theme, toggleTheme, completedRooms } = useGame();
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showResetModal, setShowResetModal] = useState(false);
+  const [showSyllabusModal, setShowSyllabusModal] = useState(false);
   const [minimizedNotice, setMinimizedNotice] = useState<string | null>(null);
+
+  const syllabus = [
+    { num: 1, title: 'Web Analytics using Open Source Tools', desc: 'Study open source tools: Matomo, Open Web Analytics, AWStats, Countly, Plausible.' },
+    { num: 2, title: 'Personal Profile using HTML5 & CSS', desc: 'Design a personal profile using semantic HTML5 tags and CSS styling.' },
+    { num: 3, title: 'Form Validation with Control Structures', desc: 'Validate registration form using HTML5, CSS and JavaScript control structures.' },
+    { num: 4, title: 'TypeScript OOP Inheritance', desc: 'Perform Inheritance example using TypeScript classes, super(), and polymorphism.' },
+    { num: 5, title: 'React SPA using React Router', desc: 'Set up development environment and create a single-page React application with React Router.' },
+    { num: 6, title: 'Angular Framework & Expressions', desc: 'Create HTML "Hello World" using AngularJS ng-controller, ng-model and expressions {{ ... }}.' },
+    { num: 7, title: 'Node.js Server & File Handling', desc: 'Build a web server and perform local file handling (fs.promises) using Node.js.' },
+    { num: 8, title: 'Feedback Form using Flask', desc: 'Design and connect a feedback form using the Python Flask micro-framework.' },
+  ];
 
   // Red Dot: Reset / Abort Prompt
   const handleRedDotClick = () => {
@@ -123,6 +135,19 @@ export const WindowFrame: React.FC<WindowFrameProps> = ({
               </span>
             )}
 
+            {/* Syllabus Modal Button */}
+            <button
+              onClick={() => {
+                sound.playClick();
+                setShowSyllabusModal(true);
+              }}
+              className="px-2 py-1 rounded border border-emerald-500/40 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 shadow-xs transition-colors cursor-pointer flex items-center space-x-1"
+              title="View 8 Curriculum Experiments"
+            >
+              <GraduationCap className="w-3.5 h-3.5 text-emerald-500" />
+              <span className="hidden md:inline text-[10px] font-bold">EXP 1-8</span>
+            </button>
+
             {/* Theme Toggle Button (Dark / Light Mode) */}
             <button
               onClick={toggleTheme}
@@ -221,6 +246,61 @@ export const WindowFrame: React.FC<WindowFrameProps> = ({
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>CONFIRM_RESET</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* Syllabus Modal (8 Curriculum Experiments) */}
+      {showSyllabusModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fadeIn">
+          <div className="glass-panel p-6 rounded-2xl border border-cyan-500/50 max-w-2xl w-full shadow-2xl space-y-4 bg-white/95 dark:bg-[#070d1d] max-h-[85vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-cyan-500/20 pb-3">
+              <div className="flex items-center space-x-2 text-cyan-700 dark:text-cyan-400 font-orbitron font-bold text-sm uppercase">
+                <GraduationCap className="w-5 h-5 text-emerald-500" />
+                <span>IT_ENG_302 // 8 Curriculum Experiments</span>
+              </div>
+              <button
+                onClick={() => setShowSyllabusModal(false)}
+                className="p-1 rounded text-slate-400 hover:text-slate-600 dark:hover:text-white cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="space-y-2 font-mono text-xs">
+              {syllabus.map((exp) => {
+                const isDone = completedRooms.includes(exp.num);
+                return (
+                  <div
+                    key={exp.num}
+                    className={`p-3 rounded-xl border flex items-start space-x-3 transition ${
+                      isDone
+                        ? 'bg-emerald-50/70 dark:bg-emerald-950/30 border-emerald-500/50 text-emerald-900 dark:text-emerald-200'
+                        : 'bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300'
+                    }`}
+                  >
+                    <span className="font-orbitron font-extrabold text-xs px-2 py-0.5 rounded bg-cyan-100 dark:bg-cyan-950 text-cyan-800 dark:text-cyan-300 shrink-0">
+                      EXP 0{exp.num}
+                    </span>
+                    <div className="flex-1">
+                      <div className="font-bold text-slate-900 dark:text-white flex items-center space-x-1.5">
+                        <span>{exp.title}</span>
+                        {isDone && <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 inline" />}
+                      </div>
+                      <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5">{exp.desc}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="pt-2 flex justify-end">
+              <button
+                onClick={() => setShowSyllabusModal(false)}
+                className="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-orbitron font-bold text-xs uppercase tracking-wider cursor-pointer"
+              >
+                CLOSE SYLLABUS
               </button>
             </div>
           </div>

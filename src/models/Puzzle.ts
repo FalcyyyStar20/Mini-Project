@@ -5,8 +5,9 @@ export interface PuzzleValidationResult {
 }
 
 /**
+ * [EXPERIMENT 4: INHERITANCE EXAMPLE USING TYPESCRIPT]
  * Abstract Base Class: Puzzle
- * Demonstrates Object-Oriented Polymorphism and Encapsulation in TypeScript
+ * Demonstrates Object-Oriented Polymorphism, Inheritance, and Encapsulation
  */
 export abstract class Puzzle {
   readonly id: number;
@@ -55,8 +56,8 @@ export abstract class Puzzle {
 }
 
 /**
- * RiddlePuzzle: Handles linguistic, semantic, and logic riddles.
- * Provides custom checks such as blocking pure numeric submissions for riddles.
+ * [EXPERIMENT 4 SUBCLASS]: RiddlePuzzle
+ * Handles linguistic, hardware, and logic riddles.
  */
 export class RiddlePuzzle extends Puzzle {
   private readonly acceptedAnswers: string[];
@@ -122,8 +123,8 @@ export class RiddlePuzzle extends Puzzle {
 }
 
 /**
- * MathPuzzle: Handles mathematical sequences, recursion calculations, and PIN codes.
- * Enforces numerical formatting and value matching.
+ * [EXPERIMENT 4 SUBCLASS]: MathPuzzle
+ * Handles mathematical sequences, C recursion calculations, and PIN codes.
  */
 export class MathPuzzle extends Puzzle {
   private readonly acceptedValues: string[];
@@ -198,7 +199,8 @@ export class MathPuzzle extends Puzzle {
 }
 
 /**
- * TechnicalPuzzle: Handles syntax operators and file system extensions.
+ * [EXPERIMENT 4 SUBCLASS]: TechnicalPuzzle
+ * Handles syntax operators and file system extensions.
  */
 export class TechnicalPuzzle extends Puzzle {
   private readonly acceptedTokens: string[];
@@ -290,8 +292,7 @@ export class TechnicalPuzzle extends Puzzle {
 }
 
 /**
- * Puzzle Repository: Initializes instances of each puzzle with polymorphism
- * Tailored for IT Engineering Mini-Project Curriculum
+ * 6 Original Escape Rooms (Preserved exactly as requested):
  */
 export const ESCAPE_ROOMS: Puzzle[] = [
   // Room 1: The Gatekeeper (Riddle - Hardware)

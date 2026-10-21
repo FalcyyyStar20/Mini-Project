@@ -13,6 +13,7 @@ import {
 import { WindowFrame } from '../components/WindowFrame';
 import { useGame } from '../context/GameContext';
 import { sound } from '../utils/sound';
+import { Room8FlaskWidget } from '../components/room-widgets/Room8FlaskWidget';
 
 interface LeaderboardRecord {
   id: string;
@@ -171,8 +172,8 @@ export const EscapedPage: React.FC = () => {
           <h1 className="text-3xl sm:text-5xl font-orbitron font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-cyan-600 to-amber-600 dark:from-emerald-400 dark:via-cyan-300 dark:to-amber-300 tracking-wider text-glow-emerald">
             PRACTICAL ASSESSMENT PASSED
           </h1>
-          <p className="font-mono text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-lg mx-auto">
-            All 6 laboratory chambers bypassed successfully. Full mastery demonstrated across Hardware, DBMS SQL Security, Discrete Mathematics, OOP Syntax, IPv4 Subnetting, and Master Cryptography.
+          <p className="font-mono text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-xl mx-auto">
+            All 6 laboratory chambers bypassed successfully. Full mastery demonstrated across Hardware Architecture, C Recursion, Discrete Mathematics, OOP Loops, Windows File Systems, and Master PIN Cryptography.
           </p>
         </div>
 
@@ -218,7 +219,7 @@ export const EscapedPage: React.FC = () => {
             </div>
             <div className="p-3 rounded-lg bg-emerald-50 dark:bg-[#030e09] border border-emerald-500/30">
               <span className="text-slate-500 dark:text-slate-400 block text-[10px]">EVALUATION RESULT</span>
-              <span className="text-amber-800 dark:text-amber-300 font-bold text-sm">GRADE: A+ (EXCELLENT)</span>
+              <span className="text-amber-800 dark:text-amber-300 font-bold text-sm">GRADE: A+ (DISTINCTION)</span>
             </div>
             <div className="p-3 rounded-lg bg-emerald-50 dark:bg-[#030e09] border border-emerald-500/30">
               <span className="text-slate-500 dark:text-slate-400 block text-[10px]">COURSE CURRICULUM</span>
@@ -226,7 +227,7 @@ export const EscapedPage: React.FC = () => {
             </div>
             <div className="p-3 rounded-lg bg-emerald-50 dark:bg-[#030e09] border border-emerald-500/30">
               <span className="text-slate-500 dark:text-slate-400 block text-[10px]">PROFESSOR LOG</span>
-              <span className="text-emerald-700 dark:text-emerald-400 font-bold text-sm">LOCAL_FS_VERIFIED</span>
+              <span className="text-emerald-700 dark:text-emerald-400 font-bold text-sm">FS_&amp;_FLASK_VERIFIED</span>
             </div>
           </div>
         </div>
@@ -359,6 +360,14 @@ export const EscapedPage: React.FC = () => {
               </tbody>
             </table>
           </div>
+        </div>
+
+        {/* Experiment 8: Python Flask Feedback Microservice Form */}
+        <div className="space-y-2">
+          <div className="flex items-center space-x-2 text-xs font-mono text-amber-600 dark:text-amber-400 font-bold px-1 uppercase tracking-wider">
+            <span>Experiment 8 Practical Sign-off: Course &amp; Lab Feedback</span>
+          </div>
+          <Room8FlaskWidget />
         </div>
 
         {/* Action Controls */}

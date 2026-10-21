@@ -57,28 +57,28 @@ export const Lobby: React.FC = () => {
 
   const handleContinueMission = () => {
     sound.playClick();
-    const nextRoom = completedRooms.length < 6 ? completedRooms.length + 1 : 6;
+    const nextRoom = completedRooms.length < 8 ? completedRooms.length + 1 : 8;
     navigate(`/room/${nextRoom}`);
   };
 
   return (
     <WindowFrame
-      title="IT_ENG_MINI_PROJECT // EVALUATION_PORTAL"
-      subtitle="ACADEMIC PRACTICAL ASSESSMENT & ESCAPE LAB"
+      title="IT_ENG_MINI_PROJECT // 8_SYLLABUS_EXPERIMENTS"
+      subtitle="ACADEMIC PRACTICAL ASSESSMENT & CODING ESCAPE LAB"
     >
-      <div className="max-w-3xl mx-auto w-full py-4 space-y-8">
+      <div className="max-w-4xl mx-auto w-full py-4 space-y-8">
         {/* Academic Header Banner */}
         <div className="text-center space-y-3">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-100/80 dark:bg-cyan-950/70 border border-cyan-500/40 text-cyan-800 dark:text-cyan-300 text-xs font-mono mb-2 shadow-[0_0_12px_rgba(56,189,248,0.3)]">
             <GraduationCap className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-            <span>COURSE: IT_ENG_302 // MINI-PROJECT EVALUATION</span>
+            <span>COURSE: IT_ENG_302 // CODING PRACTICAL EVALUATION</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-orbitron font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-teal-500 to-emerald-600 dark:from-cyan-400 dark:via-teal-300 dark:to-emerald-400 tracking-wider text-glow-cyan">
             CYBER ESCAPE: 6 ROOMS
           </h1>
           <p className="font-mono text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-xl mx-auto leading-relaxed">
-            Interactive IT Engineering Mini-Project Practical Test. Students must navigate 6 real-world technical escape challenges spanning Hardware, Database SQL Security, Discrete Mathematics, OOP Loops, IPv4 Subnetting, and Master Cryptographic PINs.
+            Interactive IT Engineering Mini-Project Practical Test. Students must navigate 6 real-world technical escape challenges spanning Hardware, C Recursion, Discrete Mathematics, OOP Syntax Loops, OS Binary File Systems, and Master Cryptographic PINs.
           </p>
         </div>
 
@@ -219,27 +219,34 @@ export const Lobby: React.FC = () => {
           </form>
         </div>
 
-        {/* Academic Syllabus Overview Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-mono">
+        {/* Academic Syllabus Overview Cards (Experiments 1 to 8) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs font-mono">
           <div className="p-3.5 rounded-lg bg-white/80 dark:bg-slate-950/60 border border-cyan-500/20 text-slate-700 dark:text-slate-300 flex items-start space-x-3 shadow-xs">
-            <span className="text-cyan-600 dark:text-cyan-400 font-bold text-sm">R1-R2</span>
+            <span className="text-cyan-600 dark:text-cyan-400 font-bold text-sm">E1-E2</span>
             <div>
-              <p className="text-cyan-800 dark:text-cyan-300 font-semibold">Hardware &amp; C Recursion</p>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">I/O architecture &amp; recursive stack trace.</p>
+              <p className="text-cyan-800 dark:text-cyan-300 font-semibold">Web Analytics &amp; HTML5/CSS</p>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Matomo/Plausible telemetry &amp; semantic profile cards.</p>
             </div>
           </div>
           <div className="p-3.5 rounded-lg bg-white/80 dark:bg-slate-950/60 border border-emerald-500/20 text-slate-700 dark:text-slate-300 flex items-start space-x-3 shadow-xs">
-            <span className="text-emerald-600 dark:text-emerald-400 font-bold text-sm">R3-R4</span>
+            <span className="text-emerald-600 dark:text-emerald-400 font-bold text-sm">E3-E4</span>
             <div>
-              <p className="text-emerald-800 dark:text-emerald-300 font-semibold">Discrete Math &amp; Loops</p>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Harmonic sequences and compiled syntax loops.</p>
+              <p className="text-emerald-800 dark:text-emerald-300 font-semibold">Form Validation &amp; TS OOP</p>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">JS control flow regex &amp; TypeScript inheritance.</p>
+            </div>
+          </div>
+          <div className="p-3.5 rounded-lg bg-white/80 dark:bg-slate-950/60 border border-purple-500/20 text-slate-700 dark:text-slate-300 flex items-start space-x-3 shadow-xs">
+            <span className="text-purple-600 dark:text-purple-400 font-bold text-sm">E5-E6</span>
+            <div>
+              <p className="text-purple-800 dark:text-purple-300 font-semibold">React SPA &amp; AngularJS</p>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">React Router v7 &amp; AngularJS ng-model expressions.</p>
             </div>
           </div>
           <div className="p-3.5 rounded-lg bg-white/80 dark:bg-slate-950/60 border border-amber-500/20 text-slate-700 dark:text-slate-300 flex items-start space-x-3 shadow-xs">
-            <span className="text-amber-600 dark:text-amber-400 font-bold text-sm">R5-R6</span>
+            <span className="text-amber-600 dark:text-amber-400 font-bold text-sm">E7-E8</span>
             <div>
-              <p className="text-amber-800 dark:text-amber-300 font-semibold">OS Binary &amp; Cryptography</p>
-              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Windows executable extensions and master PINs.</p>
+              <p className="text-amber-800 dark:text-amber-300 font-semibold">Node.js Server &amp; Flask</p>
+              <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Node fs.promises file I/O &amp; Python Flask feedback form.</p>
             </div>
           </div>
         </div>

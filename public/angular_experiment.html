@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="HelloWorldApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Experiment 6: AngularJS Hello World Project</title>
+  <!-- AngularJS 1.8.2 CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0b1120;
+      color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #38bdf8;
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 550px;
+      width: 100%;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+    }
+    h1 {
+      color: #38bdf8;
+      font-size: 24px;
+      margin-top: 0;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 10px;
+    }
+    .badge {
+      display: inline-block;
+      background: #0369a1;
+      color: #e0f2fe;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #94a3b8;
+      font-size: 13px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #475569;
+      background: #0f172a;
+      color: #fff;
+      font-size: 14px;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input[type="text"]:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+    }
+    .output-box {
+      margin-top: 20px;
+      background: #0f172a;
+      border-left: 4px solid #10b981;
+      padding: 15px;
+      border-radius: 4px;
+    }
+    .output-box p {
+      margin: 6px 0;
+      font-size: 14px;
+    }
+    .highlight {
+      color: #38bdf8;
+      font-weight: bold;
+    }
+    .highlight-green {
+      color: #34d399;
+      font-weight: bold;
+    }
+    .code-snippet {
+      margin-top: 20px;
+      background: #090d16;
+      border: 1px solid #1e293b;
+      padding: 12px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 12px;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body ng-controller="HelloWorldController">
+
+  <div class="card">
+    <span class="badge">Experiment 6: Angular Framework</span>
+    <h1>AngularJS "Hello World" Project</h1>
+
+    <!-- 1. Applying ng-model directive -->
+    <div style="margin-bottom: 15px;">
+      <label for="nameInput">Enter Operative Name (ng-model="studentName"):</label>
+      <input type="text" id="nameInput" ng-model="studentName" placeholder="Type your name here..." />
+    </div>
+
+    <div style="margin-bottom: 15px;">
+      <label for="msgInput">Custom Status Message (ng-model="customMessage"):</label>
+      <input type="text" id="msgInput" ng-model="customMessage" placeholder="Type a message..." />
+    </div>
+
+    <!-- 2. Applying Expressions {{ ... }} -->
+    <div class="output-box">
+      <h3 style="margin-top:0; color:#10b981; font-size:16px;">Two-Way Bound Expressions:</h3>
+      
+      <!-- Basic Expression -->
+      <p>Hello World Greeting: <span class="highlight">Hello, {{ studentName || 'Operative' }}!</span></p>
+      
+      <!-- Expression with Filter -->
+      <p>Uppercase Expression: <span class="highlight-green">{{ (studentName || 'Operative') | uppercase }}</span></p>
+      
+      <!-- Dynamic Scope Expression -->
+      <p>Status: <span>{{ customMessage }}</span></p>
+      
+      <!-- Mathematical Expression -->
+      <p>Arithmetic Evaluation: <code>{{ 6 * 7 }}</code> (Evaluated expression {{ 6 * 7 }} = 42)</p>
+    </div>
+
+    <!-- 3. AngularJS Controller Code Explanation -->
+    <div class="code-snippet">
+      <strong>AngularJS Script (ng-controller):</strong><br>
+      var app = angular.module('HelloWorldApp', []);<br>
+      app.controller('HelloWorldController', function($scope) {<br>
+      &nbsp;&nbsp;$scope.studentName = 'Alex Chen';<br>
+      &nbsp;&nbsp;$scope.customMessage = 'AngularJS two-way data binding active!';<br>
+      });
+    </div>
+  </div>
+
+  <script>
+    // Module Declaration (ng-app)
+    var app = angular.module('HelloWorldApp', []);
+
+    // Controller Declaration (ng-controller)
+    app.controller('HelloWorldController', function($scope) {
+      $scope.studentName = 'Alex Chen';
+      $scope.customMessage = 'AngularJS two-way data binding active!';
+    });
+  </script>
+
+</body>
+</html>
